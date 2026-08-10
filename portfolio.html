@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swati Rao Kosuri | Senior Android Engineer</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --bg-secondary: #161b22;
+    --accent: #58a6ff;
+    --accent-glow: #79c0ff;
+    --text: #c9d1d9;
+    --text-muted: #8b949e;
+    --border: #30363d;
+    --card: #1c2128;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { color: var(--accent-glow); }
+
+  /* Navbar */
+  nav {
+    position: sticky;
+    top: 0;
+    background: rgba(13,17,23,0.9);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+    z-index: 100;
+  }
+  nav .logo { font-weight: 700; color: var(--text); font-size: 1.1rem; }
+  nav .logo span { color: var(--accent); }
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 28px;
+  }
+  nav ul li a {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+  nav ul li a:hover { color: var(--accent); }
+
+  /* Hero */
+  header.hero {
+    text-align: center;
+    padding: 100px 20px 80px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  header.hero .tag {
+    display: inline-block;
+    background: rgba(88,166,255,0.1);
+    color: var(--accent);
+    border: 1px solid rgba(88,166,255,0.3);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+  }
+  header.hero h1 {
+    font-size: 2.8rem;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  header.hero h2 {
+    font-size: 1.3rem;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  header.hero p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    max-width: 650px;
+    margin: 0 auto 30px;
+  }
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 0.95rem;
+  }
+  .contact-links a, .contact-links span {
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* Sections */
+  section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 20px;
+  }
+  section h2.section-title {
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  section h2.section-title span { color: var(--accent); }
+  .section-subtitle {
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    font-size: 0.95rem;
+  }
+
+  /* Summary */
+  .summary-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 30px;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+
+  /* Skills */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  .skill-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .skill-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+  }
+  .skill-card h3 {
+    color: var(--accent);
+    font-size: 1rem;
+    margin-bottom: 14px;
+  }
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .tag-list span {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+  }
+
+  /* Experience */
+  .job {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 30px;
+    position: relative;
+  }
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: baseline;
+    margin-bottom: 4px;
+  }
+  .job-header h3 { color: #fff; font-size: 1.2rem; }
+  .job-header .date {
+    color: var(--accent);
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  .job .company {
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 16px;
+    font-size: 0.95rem;
+  }
+  .job ul { padding-left: 20px; }
+  .job ul li {
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+  }
+  .job ul li strong { color: var(--text); }
+
+  /* Awards & Education */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  @media (max-width: 768px) {
+    .grid-2 { grid-template-columns: 1fr; }
+  }
+  .info-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 26px;
+  }
+  .info-card h3 {
+    color: var(--accent);
+    margin-bottom: 16px;
+    font-size: 1.1rem;
+  }
+  .info-item {
+    margin-bottom: 16px;
+  }
+  .info-item:last-child { margin-bottom: 0; }
+  .info-item .title { color: #fff; font-weight: 600; font-size: 0.95rem; }
+  .info-item .desc { color: var(--text-muted); font-size: 0.88rem; margin-top: 4px; }
+
+  /* Footer / Contact */
+  footer {
+    text-align: center;
+    padding: 60px 20px 40px;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+  footer h2 { color: #fff; font-size: 1.8rem; margin-bottom: 10px; }
+  footer p { color: var(--text-muted); margin-bottom: 24px; }
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
+  .btn {
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 1px solid var(--border);
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: #0d1117;
+    border: none;
+  }
+  .btn-primary:hover { background: var(--accent-glow); }
+  .btn-outline { color: var(--text); }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+  footer .copyright { color: var(--text-muted); font-size: 0.85rem; }
+
+  @media (max-width: 768px) {
+    nav ul { display: none; }
+    header.hero h1 { font-size: 2.1rem; }
+    .job-header { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Swati<span>.dev</span></div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="hero" id="about">
+  <div class="tag">Available for Senior Android Engineering Roles</div>
+  <h1>Swati Rao Kosuri</h1>
+  <h2>Senior Software Engineer II — Android</h2>
+  <p>
+    7+ years building enterprise-scale Android applications used by 4M+ users.
+    Specialized in modernizing legacy codebases into scalable, multi-module
+    architectures with Kotlin, Jetpack Compose, and Clean Architecture.
+  </p>
+  <div class="contact-links">
+    <span>📧 swatimuthyam23@gmail.com</span>
+    <span>📱 +1 (919) 323-1802</span>
+    <a href="https://linkedin.com/in/swati-rao-kosuri" target="_blank">🔗 LinkedIn</a>
+  </div>
+</header>
+
+<section id="summary">
+  <h2 class="section-title">Professional <span>Summary</span></h2>
+  <p class="section-subtitle">A quick look at my engineering focus and impact</p>
+  <div class="summary-box">
+    Senior Android Engineer with 7+ years of experience designing, building, and delivering
+    enterprise-scale Android applications used by 4M+ users. Experienced in modernizing legacy
+    codebases into scalable multi-module architectures, improving application performance,
+    reliability, and developer productivity. Strong expertise in Kotlin, Jetpack Compose, MVVM,
+    Clean Architecture, Coroutines, Flow, Hilt, and Android SDK, with a proven ability to build
+    secure, maintainable, and high-performing mobile applications. Passionate about solving complex
+    engineering problems, driving architectural decisions, mentoring engineers, and collaborating
+    closely with Product, Design, Backend, and Security teams to deliver exceptional user experiences.
+  </div>
+</section>
+
+<section id="skills">
+  <h2 class="section-title">Technical <span>Skills</span></h2>
+  <p class="section-subtitle">Tools and technologies I work with</p>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <h3>Languages</h3>
+      <div class="tag-list"><span>Kotlin</span><span>Java</span></div>
+    </div>
+    <div class="skill-card">
+      <h3>Android Development</h3>
+      <div class="tag-list">
+        <span>Android SDK</span><span>Jetpack Compose</span><span>XML</span>
+        <span>Material Design 3</span><span>Navigation Component</span>
+        <span>WorkManager</span><span>DataStore</span><span>Paging 3</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <h3>Architecture & Design</h3>
+      <div class="tag-list">
+        <span>Clean Architecture</span><span>MVVM</span><span>MVI</span>
+        <span>Multi-Module</span><span>SOLID Principles</span>
+        <span>Dependency Injection</span><span>Offline-First</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <h3>Frameworks & Libraries</h3>
+      <div class="tag-list">
+        <span>Coroutines</span><span>Flow</span><span>StateFlow</span>
+        <span>Hilt</span><span>Dagger</span><span>Retrofit</span>
+        <span>OkHttp</span><span>Room</span><span>Firebase</span><span>Coil</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <h3>Testing & Quality</h3>
+      <div class="tag-list">
+        <span>JUnit</span><span>Mockito</span><span>MockK</span>
+        <span>Espresso</span><span>UI Automator</span><span>Compose Testing</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <h3>Networking & Security</h3>
+      <div class="tag-list">
+        <span>REST APIs</span><span>OAuth 2.0</span><span>Certificate Pinning</span>
+        <span>Biometric Auth</span><span>Secure Data Handling</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <h3>Build, CI/CD & Tools</h3>
+      <div class="tag-list">
+        <span>Gradle</span><span>Git</span><span>GitHub Actions</span>
+        <span>Jenkins</span><span>AWS</span><span>Firebase App Distribution</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <h3>Leadership & Practices</h3>
+      <div class="tag-list">
+        <span>Agile</span><span>Code Reviews</span><span>Mentoring</span>
+        <span>Technical Strategy</span><span>GitHub Copilot</span><span>Gemini</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <h2 class="section-title">Professional <span>Experience</span></h2>
+  <p class="section-subtitle">My journey building enterprise Android applications</p>
+
+  <div class="job">
+    <div class="job-header">
+      <h3>Senior Software Engineer II</h3>
+      <span class="date">2018 – 2022</span>
+    </div>
+    <div class="company">Concentrix — ConcentrixOne Application</div>
+    <ul>
+      <li>Led the design and evolution of an enterprise Android platform supporting applications used by <strong>4M+ users</strong>, driving scalable architecture and long-term maintainability.</li>
+      <li>Modernized a legacy Android codebase by introducing Kotlin, Jetpack Compose, Clean Architecture, MVVM, and multi-module architecture.</li>
+      <li>Migrated a monolithic application into a modular architecture, reducing build times by <strong>45%</strong> across a 20+ engineer team.</li>
+      <li>Reduced cold-start time by <strong>40%</strong>, ANRs by <strong>55%</strong>, and production crashes by <strong>38%</strong>.</li>
+      <li>Delivered secure mobile experiences using OAuth 2.0 and biometric authentication.</li>
+      <li>Contributed to improving Google Play Store rating from <strong>3.0 to 4.5</strong>.</li>
+      <li>Mentored Android engineers through code reviews, architecture discussions, and documentation.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-header">
+      <h3>Android Technical Lead</h3>
+      <span class="date">2016 – 2018</span>
+    </div>
+    <div class="company">Convergys — MyTransport Application</div>
+    <ul>
+      <li>Led Android development for transportation solutions, delivering end-to-end mobile features from design through production.</li>
+      <li>Built and maintained secure Android applications using Java, Android SDK, and REST APIs.</li>
+      <li>Designed reusable UI components and frameworks that improved development efficiency and consistency.</li>
+      <li>Integrated GPS, location services, and real-time data workflows for transportation operations.</li>
+      <li>Reduced production incidents by <strong>40%</strong> through memory optimization and proactive debugging.</li>
+      <li>Collaborated with Backend, QA, and Product teams to deliver customer-focused mobile solutions.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="awards">
+  <h2 class="section-title">Awards & <span>Education</span></h2>
+  <p class="section-subtitle">Recognition, academic background, and certifications</p>
+  <div class="grid-2">
+    <div class="info-card">
+      <h3>🏆 Awards & Recognition</h3>
+      <div class="info-item">
+        <div class="title">Star of Q3 Award</div>
+        <div class="desc">Recognized for significant contributions to the ConcentrixOne Android platform, delivering high-impact engineering solutions.</div>
+      </div>
+      <div class="info-item">
+        <div class="title">Multiple Star of the Month Awards</div>
+        <div class="desc">Recognized for ownership, technical excellence, and contributions to business-critical Android initiatives.</div>
+      </div>
+    </div>
+    <div class="info-card">
+      <h3>🎓 Education & Certifications</h3>
+      <div class="info-item">
+        <div class="title">B.Tech. — Computer Science & Engineering</div>
+        <div class="desc">Jawaharlal Nehru Technological University · 2010 – 2014</div>
+      </div>
+      <div class="info-item">
+        <div class="title">Associate Android Developer Certification</div>
+        <div class="desc">Certified in core Android development competencies</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <h2>Let's Connect</h2>
+  <p>Open to senior Android engineering opportunities and technical collaborations.</p>
+  <div class="footer-links">
+    <a href="mailto:swatimuthyam23@gmail.com" class="btn btn-primary">Email Me</a>
+    <a href="https://linkedin.com/in/swati-rao-kosuri" target="_blank" class="btn btn-outline">LinkedIn</a>
+    <a href="tel:+19193231802" class="btn btn-outline">Call</a>
+  </div>
+  <div class="copyright">© 2026 Swati Rao Kosuri. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
